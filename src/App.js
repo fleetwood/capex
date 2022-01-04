@@ -43,8 +43,8 @@ import routes from "routes";
 import { useMaterialUIController, setMiniSidenav, setOpenConfigurator } from "context";
 
 // Images
-import brandWhite from "assets/images/logo-ct.png";
-import brandDark from "assets/images/logo-ct-dark.png";
+// import brandWhite from "assets/images/logo-ct.png";
+// import brandDark from "assets/images/logo-ct-dark.png";
 
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();
@@ -54,8 +54,8 @@ export default function App() {
     layout,
     openConfigurator,
     sidenavColor,
-    transparentSidenav,
-    whiteSidenav,
+    // transparentSidenav,
+    // whiteSidenav,
     darkMode,
   } = controller;
   const [onMouseEnter, setOnMouseEnter] = useState(false);
@@ -135,8 +135,9 @@ export default function App() {
         <>
           <Sidenav
             color={sidenavColor}
-            brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
+            // brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
             brandName="ACME Capex"
+            width="100%"
             routes={routes}
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}

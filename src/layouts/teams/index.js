@@ -50,8 +50,14 @@ import team1 from "assets/images/team-1.jpg";
 import team2 from "assets/images/team-2.jpg";
 import team3 from "assets/images/team-3.jpg";
 import team4 from "assets/images/team-4.jpg";
+import { Card } from "@mui/material";
+import DataTable from "examples/Tables/DataTable";
 
-function Overview() {
+import projectsTable from "./data/projectsTable";
+
+const { columns: pColumns, rows: pRows } = projectsTable();
+
+function Teams() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -101,13 +107,31 @@ function Overview() {
           </Grid>
         </MDBox>
         <MDBox pt={2} px={2} lineHeight={1.25}>
-          <MDTypography variant="h6" fontWeight="medium">
-            Projects
-          </MDTypography>
           <MDBox mb={1}>
-            <MDTypography variant="button" color="text">
-              Architects design houses
-            </MDTypography>
+            <Card>
+              <MDBox
+                mx={2}
+                mt={-3}
+                py={3}
+                px={2}
+                variant="gradient"
+                bgColor="primary"
+                borderRadius="md"
+              >
+                <MDTypography variant="h6" color="white">
+                  Projects
+                </MDTypography>
+              </MDBox>
+              <MDBox pt={1}>
+                <DataTable
+                  table={{ columns: pColumns, rows: pRows }}
+                  isSorted={false}
+                  entriesPerPage={false}
+                  showTotalEntries={false}
+                  noEndBorder
+                />
+              </MDBox>
+            </Card>
           </MDBox>
         </MDBox>
         <MDBox p={2}>
@@ -200,4 +224,4 @@ function Overview() {
   );
 }
 
-export default Overview;
+export default Teams;
